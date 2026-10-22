@@ -35,12 +35,18 @@ if encontrado == False:
         archivo.write(f"{dni};{nombre};{edad};{direccion};{celular};{celular2}\n")
     print("Paciente registrado correctamente")
 
+
 #Registrar el motivo de consulta
 print("\n2 Motivo de consulta o visita")
 motivo = input("Describa el motivo de consulta: ")
 
+with open("Motivos.txt","r") as archivo:
+    motivos = archivo.read().splitlines()
+    
+    numero = len(motivos) + 1
+
 #Guardar la atención
 with open("Motivos.txt","a") as archivo:
-    archivo.write(f"{dni};{motivo}\n")
+    archivo.write(f"{numero}.;{dni};{motivo}\n")
 
 print("\n Atención registrada correctamente")
